@@ -76,4 +76,44 @@ footer {
     color: #666;
     font-size: 14px;
 }
+/* Header styling */
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 30px 20px;
+}
+
+/* Navigation bar styling */
+nav {
+    background: #fafafa;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #005fa3;
+}
+
+/* Main content spacing */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Footer styling */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
 
