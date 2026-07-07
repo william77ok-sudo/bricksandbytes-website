@@ -44,3 +44,36 @@ footer {
     font-size: 14px;
     color: #666;
 }
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+nav {
+    background: #fafafa;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #005fa3;
+}
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
