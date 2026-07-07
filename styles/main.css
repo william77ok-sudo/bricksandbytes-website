@@ -116,4 +116,13 @@ footer {
     color: #666;
     font-size: 14px;
 }
+/* === BRAND COLOURS === */
+:root {
+    --brand-navy: #0A1A2F;
+    --brand-white: #FFFFFF;
+    --brand-red: #E63946;
+    --brand-blue: #3A86FF;
+    --brand-grey-light: #F5F7FA;
+    --brand-grey-mid: #D9E1E8;
+}
 
