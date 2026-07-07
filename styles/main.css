@@ -135,4 +135,8 @@ p {
     line-height: 1.6;
     margin-bottom: 16px;
 }
+.logo {
+    height: 48px;
+    margin-right: 12px;
+}
 
