@@ -126,4 +126,13 @@ footer {
     --brand-grey-light: #F5F7FA;
     --brand-grey-mid: #D9E1E8;
 }
+h1, h2, h3 {
+    font-weight: 700;
+    color: var(--brand-navy);
+    margin-bottom: 10px;
+}
+p {
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
 
