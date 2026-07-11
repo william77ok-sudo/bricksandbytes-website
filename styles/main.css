@@ -4,38 +4,39 @@
     --brand-white: #FFFFFF;
     --brand-red: #E63946;
     --brand-blue: #3A86FF;
-    --brand-blue-dark: #2a6ad6;
     --brand-grey-light: #F5F7FA;
     --brand-grey-mid: #D9E1E8;
 }
 
-/* Global reset */
+/* === GLOBAL RESET === */
 body {
-    background-color: var(--brand-grey-light);
-    color: var(--brand-navy);
-    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--brand-navy);
+
+    /* Soft gradient background */
+    background: linear-gradient(180deg, #F5F7FA 0%, #E9EEF5 100%);
 }
 
-/* Layout */
-header,
-nav,
-footer {
-    text-align: center;
-}
-
-/* Header styling */
+/* === HEADER === */
 header {
-    background: var(--brand-white);
-    border-bottom: 1px solid #ddd;
-    padding: 30px 20px;
+    text-align: center;
+    padding: 40px 20px;
+    background: transparent;
 }
 
-/* Navigation bar styling */
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* === NAVIGATION === */
 nav {
-    background: #fafafa;
-    border-bottom: 1px solid #ddd;
+    text-align: center;
+    background: var(--brand-white);
+    border-bottom: 1px solid var(--brand-grey-mid);
     padding: 15px;
 }
 
@@ -43,42 +44,31 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     color: var(--brand-blue);
-    font-weight: bold;
+    font-weight: 600;
 }
 
 nav a:hover {
-    color: var(--brand-blue-dark);
+    color: #2a6ad6;
     text-decoration: underline;
 }
 
-/* Page container / Main content spacing */
+/* === MAIN LAYOUT === */
 main {
-    max-width: 800px;
+    max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Headings */
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+/* === CONTAINER CARD === */
+.container {
+    background: var(--brand-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
 }
 
-h1,
-h2,
-h3 {
-    font-weight: 700;
-    color: var(--brand-navy);
-    margin-bottom: 10px;
-}
-
-/* Paragraphs */
-p {
-    line-height: 1.6;
-    margin-bottom: 16px;
-}
-
-/* Hero section */
+/* === HERO SECTION === */
 .hero {
     text-align: center;
     padding: 60px 20px;
@@ -97,17 +87,69 @@ p {
     line-height: 1.6;
 }
 
-/* Logo */
-.logo {
-    height: 48px;
-    margin-right: 12px;
+/* === PRODUCT GRID === */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
 }
 
-/* Footer styling */
+/* === PRODUCT CARD === */
+.product-card {
+    background: var(--brand-white);
+    border: 1px solid var(--brand-grey-mid);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.product-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--brand-navy);
+}
+
+.product-card p {
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* === PRODUCT BUTTON === */
+.product-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background: var(--brand-blue);
+    color: var(--brand-white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.product-btn:hover {
+    background: #2a6ad6;
+}
+
+/* === FOOTER === */
 footer {
-    margin-top: 40px;
-    padding: 20px;
     text-align: center;
+    padding: 20px;
     color: #666;
     font-size: 14px;
+}
+
+/* === FLOATING LOGO (BOTTOM-RIGHT) === */
+.logo-floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 80px; /* medium size */
+    opacity: 0.9;
+    pointer-events: none; /* prevents accidental clicks */
 }
