@@ -1,10 +1,10 @@
-/* Global reset */
 /* === BRAND COLOURS === */
 :root {
     --brand-navy: #0A1A2F;
     --brand-white: #FFFFFF;
     --brand-red: #E63946;
     --brand-blue: #3A86FF;
+    --brand-blue-dark: #2a6ad6;
     --brand-grey-light: #F5F7FA;
     --brand-grey-mid: #D9E1E8;
 }
@@ -42,12 +42,12 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #0077cc;
+    color: var(--brand-blue);
     font-weight: bold;
 }
 
 nav a:hover {
-    color: #005fa3;
+    color: var(--brand-blue-dark);
     text-decoration: underline;
 }
 
@@ -76,6 +76,25 @@ h3 {
 p {
     line-height: 1.6;
     margin-bottom: 16px;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
 /* Logo */
