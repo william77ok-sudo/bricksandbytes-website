@@ -86,6 +86,10 @@ h1 { margin: 0; font-size: clamp(2.8rem, 6vw, 5.5rem); }
 .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 .status-audit { color: #a4462d; background: #fff0eb; }
 .status-build { color: #66558e; background: #f0ecfa; }
+.status-live { margin-bottom: 16px; color: #08754f; background: #e4f7ef; }
+.hero .status-live { color: #bdf4de; background: rgba(18, 145, 99, .22); }
+.product-value { max-width: 760px !important; margin-top: 16px !important; }
+.product-actions { margin-top: 28px; }
 
 .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 74px; align-items: start; }
 .split h2 { margin: 0; font-size: clamp(2.1rem, 4vw, 3.5rem); }
