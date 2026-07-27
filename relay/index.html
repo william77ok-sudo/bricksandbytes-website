@@ -1,10 +1,145 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Try Relay, a fictional family caregiver handover demonstration from Bytes &amp; Bricks."><link rel="canonical" href="https://bytesandbricks.co.uk/relay/"><title>Relay fictional demo | Bytes &amp; Bricks</title><link rel="icon" href="/assets/favicon-32.png" type="image/png"><link rel="stylesheet" href="/relay/relay.css"></head>
-<body><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="/" aria-label="Bytes and Bricks home"><span>◒</span> Relay</a><div class="tools"><small>Guided demo</small><label class="sr" for="role">View as</label><select id="role"><option value="sarah">Sarah · Coordinator</option><option value="tom">Tom · Caregiver</option><option value="jess">Jess · Observer</option></select><b id="avatar">SB</b></div></header><div class="notice">◇ Fictional demonstration only — Relay is a coordination tool, not a medical service.</div>
-<main id="main"><section class="welcome"><div><p class="eyebrow">Anne’s care space</p><h1 id="greeting">Good afternoon, Sarah.</h1><p id="intro">Here’s everything you need for a calm, clear handover.</p></div><div class="anne"><i>AB</i><span><strong>Anne Bennett</strong><small>Age 78 · At home</small></span><em>Private space</em></div></section>
-<div id="observer-empty" class="empty card" hidden><h2>No published handover yet</h2><p>Jess can see family updates after a caregiver publishes them. Drafts always stay private.</p></div>
-<div id="dashboard" class="dashboard"><section class="handover card"><div class="head"><div><p class="eyebrow">Today’s handover</p><h2 id="headline">Ready for your review</h2><p>From Sarah to Tom · <span id="updated">Today, 4:20 pm</span></p></div><span id="status" class="status">Draft</span></div>
-<article class="summary"><span>☀</span><div><h3>Summary</h3><p>Anne had a settled afternoon and enjoyed sitting by the window. She was cheerful when we spoke about the garden.</p></div></article><div class="grid"><article><span>◌</span><div><h3>Meals and drinks</h3><p>Lunch finished. Tea and water offered during the afternoon.</p></div></article><article><span>☺</span><div><h3>Mood and company</h3><p>Bright and chatty. Neighbour June stopped by for twenty minutes.</p></div></article><article><span>⌂</span><div><h3>Household updates</h3><p>Grocery delivery arrived and has been put away.</p></div></article><article class="attention"><span>!</span><div><h3>Things still to do</h3><label><input id="task" type="checkbox"> Put the blue recycling box out this evening</label></div></article></div>
-<div class="next"><strong>For the next caregiver</strong><p>Anne would like the radio on after dinner. The remote is beside her chair.</p></div><div id="actions" class="actions"><button id="publish">Publish handover to Tom →</button><button id="accept" hidden>Accept responsibility ✓</button><p id="success" hidden>✓ Tom accepted responsibility. This record is saved.</p></div></section>
-<aside><section class="card side"><p class="eyebrow">Handover progress</p><ol><li class="done"><b>✓</b><span><strong>Sarah recorded the update</strong><small>Today, 4:20 pm</small></span></li><li id="shared"><b>2</b><span><strong>Shared with Tom</strong><small>Not published yet</small></span></li><li id="accepted"><b>3</b><span><strong>Tom accepts</strong><small>Waiting</small></span></li></ol></section><section class="card side people"><p class="eyebrow">Care circle · 3 people</p><p><b>SB</b><span><strong>Sarah</strong><small>Coordinator</small></span></p><p><b>TB</b><span><strong>Tom</strong><small>Caregiver</small></span></p><p><b>JB</b><span><strong>Jess</strong><small>Family observer</small></span></p></section><button id="reset" class="reset">Reset fictional demo</button></aside></div></main>
-<footer><a href="/">Bytes &amp; Bricks</a><span>Fictional testing only. Do not enter personal or health information.</span></footer><script src="/relay/relay.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Try Relay, a fictional daily care handover demonstration from Bytes &amp; Bricks.">
+  <link rel="canonical" href="https://bytesandbricks.co.uk/relay/">
+  <title>Relay fictional demo | Bytes &amp; Bricks</title>
+  <link rel="icon" href="/assets/favicon-32.png" type="image/png">
+  <link rel="stylesheet" href="/relay/relay.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <a class="brand" href="/" aria-label="Bytes and Bricks home"><span aria-hidden="true">◒</span> Relay</a>
+    <div class="tools">
+      <small>Guided demo</small>
+      <label class="sr" for="region">Region</label>
+      <select id="region"><option value="us">United States</option><option value="uk">United Kingdom</option></select>
+      <label class="sr" for="role">View demo as</label>
+      <select id="role"><option value="sarah">Sarah · Activity coordinator</option><option value="tom">Tom · CNA</option><option value="jess">Jess · Family</option></select>
+      <b id="avatar" aria-hidden="true">SB</b>
+    </div>
+  </header>
+
+  <div class="notice" role="note">Fictional demonstration only — Relay shares everyday updates, not medical advice.</div>
+
+  <main id="main">
+    <section class="welcome">
+      <div><p class="eyebrow">Anne’s care space</p><h1 id="greeting">Good afternoon, Sarah.</h1><p id="intro">A calm, clear handover for today.</p></div>
+      <div class="anne"><i>AB</i><span><strong>Anne Bennett</strong><small>Age 78 · Fictional resident</small></span><em>Private space</em></div>
+    </section>
+
+    <section id="family-context" class="family-context" hidden>
+      <div aria-hidden="true">i</div>
+      <p><strong id="context-title">A note about dementia care</strong><span id="context-copy">Behavioral shifts and mood changes can be part of the dementia process. These updates are quick snapshots of the day, not medical diagnoses. Please speak with the nursing team if you have concerns.</span></p>
+    </section>
+
+    <div id="observer-empty" class="empty card" hidden>
+      <h2>No published handover yet</h2>
+      <p>Family members can see an update after a care team member publishes it. Drafts stay private.</p>
+      <div class="empty-supply">
+        <strong>Supply update</strong>
+        <span id="empty-supply-copy">Preferred wipes: 1 package left · Coca-Cola: 6 of 24 cans left</span>
+        <small id="empty-supply-status">Two preferred supplies are running low.</small>
+      </div>
+    </div>
+
+    <div id="dashboard" class="dashboard">
+      <section>
+        <article class="handover card">
+          <div class="head"><div><p class="eyebrow">Today’s handover</p><h2 id="headline">Ready for review</h2><p>From Sarah to Tom · <span id="updated">Today, 4:20 pm</span></p></div><span id="status" class="status">Draft</span></div>
+
+          <div class="summary"><span aria-hidden="true">☀</span><div><h3>Summary</h3><p>Anne had a settled afternoon and enjoyed sitting by the window.</p></div></div>
+          <div class="grid">
+            <article><span aria-hidden="true">◌</span><div><h3>Meals and drinks</h3><p>Lunch finished. Tea and water offered during the afternoon.</p></div></article>
+            <article><span aria-hidden="true">☺</span><div><h3>Mood and company</h3><p>Bright and chatty. Neighbour June stopped by for twenty minutes.</p></div></article>
+            <article><span aria-hidden="true">⌂</span><div><h3>Room and deliveries</h3><p>Grocery delivery arrived and has been put away.</p></div></article>
+            <article class="supplies"><span aria-hidden="true">▤</span><div><h3>Family supply note</h3><p><b>Running low:</b> Coca-Cola cans</p><p><b>Out of stock:</b> Tomato soup</p></div></article>
+          </div>
+
+          <section id="remarks-editor" class="remarks-editor">
+            <p class="eyebrow">Quick remarks</p>
+            <h3>Add a useful note without typing everything</h3>
+            <div class="chips" aria-label="Quick remark suggestions">
+              <button type="button" data-remark="Settled and comfortable">Settled and comfortable</button>
+              <button type="button" data-remark="Enjoyed company today">Enjoyed company</button>
+              <button type="button" data-remark="Ate and drank well">Ate and drank well</button>
+              <button type="button" data-remark="Rested this afternoon">Rested this afternoon</button>
+              <button type="button" data-remark="Supplies need topping up">Supplies need topping up</button>
+            </div>
+            <label for="remarks">Optional remarks for the next care team member</label>
+            <textarea id="remarks" maxlength="280" rows="3" placeholder="Add a short, factual everyday update…"></textarea>
+            <small><span id="remark-count">0</span>/280 characters · Do not diagnose or interpret symptoms.</small>
+          </section>
+
+          <div id="published-remarks" class="next" hidden><strong>Quick remarks</strong><p id="published-remarks-copy"></p></div>
+          <div class="next"><strong>For the next care team member</strong><p>Anne would like the radio on after dinner. The remote is beside her chair.</p></div>
+          <div class="attention-row"><label><input id="task" type="checkbox"> Put the blue recycling box out this evening</label></div>
+
+          <div id="actions" class="actions"><button id="publish">Publish handover to Tom →</button><button id="accept" hidden>Accept responsibility ✓</button><p id="success" hidden>✓ Tom accepted responsibility. This record is saved.</p></div>
+        </article>
+
+        <section class="inventory card" aria-labelledby="inventory-title">
+          <div class="inventory-head">
+            <div><p class="eyebrow">Supply tracker</p><h2 id="inventory-title">Preferred supplies</h2><p>Quick counts help families replenish familiar items before they run out.</p></div>
+            <span id="supply-alert-count" class="supply-alert">2 running low</span>
+          </div>
+          <div id="family-supply-alert" class="family-supply-alert" hidden>
+            <strong>Time to top up</strong>
+            <span id="family-supply-alert-copy">Preferred wipes and Coca-Cola are running low.</span>
+          </div>
+          <div class="inventory-list">
+            <article class="inventory-item" data-supply="wipes">
+              <div class="supply-icon" aria-hidden="true">W</div>
+              <div class="supply-info"><h3>Preferred wipes</h3><p>ComfortCare Sensitive · family-provided</p><small>Full surplus box: 6 packages</small></div>
+              <div class="supply-count"><strong><span data-count="wipes">1</span> of 6</strong><small data-level="wipes">Running low</small></div>
+              <div class="supply-controls" aria-label="Update preferred wipes count">
+                <button type="button" data-adjust="wipes:-1" aria-label="Use one package of preferred wipes">−</button>
+                <button type="button" data-adjust="wipes:1" aria-label="Add one package of preferred wipes">+</button>
+                <button type="button" class="restock" data-restock="wipes">Restocked</button>
+              </div>
+            </article>
+            <article class="inventory-item" data-supply="lotion">
+              <div class="supply-icon" aria-hidden="true">L</div>
+              <div class="supply-info"><h3>Preferred lotion</h3><p>Aveeno Daily Moisturising · family-provided</p><small>Full surplus box: 2 bottles</small></div>
+              <div class="supply-count"><strong><span data-count="lotion">2</span> of 2</strong><small data-level="lotion">Well stocked</small></div>
+              <div class="supply-controls" aria-label="Update preferred lotion count">
+                <button type="button" data-adjust="lotion:-1" aria-label="Use one bottle of preferred lotion">−</button>
+                <button type="button" data-adjust="lotion:1" aria-label="Add one bottle of preferred lotion">+</button>
+                <button type="button" class="restock" data-restock="lotion">Restocked</button>
+              </div>
+            </article>
+            <article class="inventory-item" data-supply="cola">
+              <div class="supply-icon" aria-hidden="true">C</div>
+              <div class="supply-info"><h3>Coca-Cola cans</h3><p>Original Taste · family-provided</p><small>Full surplus box: 24 cans</small></div>
+              <div class="supply-count"><strong><span data-count="cola">6</span> of 24</strong><small data-level="cola">Running low</small></div>
+              <div class="supply-controls" aria-label="Update Coca-Cola count">
+                <button type="button" data-adjust="cola:-1" aria-label="Use one Coca-Cola can">−</button>
+                <button type="button" data-adjust="cola:1" aria-label="Add one Coca-Cola can">+</button>
+                <button type="button" class="restock" data-restock="cola">Restocked</button>
+              </div>
+            </article>
+          </div>
+          <p class="inventory-footnote"><strong>Latest check:</strong> <span id="supply-updated">Today, 4:35 pm</span> · Counts are practical estimates, not billing records.</p>
+        </section>
+
+        <section class="archive">
+          <div class="archive-title"><div><p class="eyebrow">Previous handovers</p><h2>Earlier days</h2></div><span>Collapsed by date</span></div>
+          <details><summary><span><strong>Saturday, 25 July</strong><small>Accepted · Calm afternoon</small></span><b>View</b></summary><div class="archive-body"><p><strong>Mood:</strong> Relaxed and enjoyed music after lunch.</p><p><strong>Meals:</strong> Lunch finished; water offered regularly.</p><p><strong>Family note:</strong> Orange juice is running low.</p></div></details>
+          <details><summary><span><strong>Friday, 24 July</strong><small>Completed · Family visit</small></span><b>View</b></summary><div class="archive-body"><p><strong>Mood:</strong> Cheerful during a family visit.</p><p><strong>Household:</strong> Clean laundry returned to the room.</p><p><strong>Next handover:</strong> Reading glasses are beside the lamp.</p></div></details>
+        </section>
+      </section>
+
+      <aside>
+        <section class="card side"><p class="eyebrow">Handover progress</p><ol><li class="done"><b>✓</b><span><strong>Sarah recorded the update</strong><small>Today, 4:20 pm</small></span></li><li id="shared"><b>2</b><span><strong>Shared with Tom</strong><small>Not published yet</small></span></li><li id="accepted"><b>3</b><span><strong>Tom accepts</strong><small>Waiting</small></span></li></ol></section>
+        <section class="card side people"><p class="eyebrow">Care circle · 3 people</p><p><b>SB</b><span><strong>Sarah</strong><small id="sarah-role">Activity coordinator</small></span></p><p><b>TB</b><span><strong>Tom</strong><small id="tom-role">Certified nursing assistant</small></span></p><p><b>JB</b><span><strong>Jess</strong><small>Family observer</small></span></p></section>
+        <button id="reset" class="reset">Reset fictional demo</button>
+      </aside>
+    </div>
+  </main>
+  <footer><a href="/">Bytes &amp; Bricks</a><span>Fictional testing only. Do not enter personal or health information.</span></footer>
+  <script src="/relay/relay.js"></script>
+</body>
+</html>
