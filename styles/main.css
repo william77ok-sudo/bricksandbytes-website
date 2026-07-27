@@ -80,6 +80,8 @@ h1 { margin: 0; font-size: clamp(2.8rem, 6vw, 5.5rem); }
 .card-number { color: var(--blue); font-weight: 800; font-size: .78rem; letter-spacing: .12em; }
 .card h3 { margin: 28px 0 13px; font-size: 1.55rem; }
 .card p { margin: 0 0 26px; color: var(--muted); }
+.platform-label { display: inline-flex; align-items: center; width: fit-content; margin-top: auto; color: var(--navy-800); font-size: .76rem; font-weight: 750; letter-spacing: .04em; }
+.platform-label::before { content: ""; width: 18px; height: 2px; margin-right: 8px; background: var(--blue); }
 .card-link { margin-top: auto; color: var(--navy-800); font-weight: 800; text-decoration: none; }
 .card-link::after { content: " →"; color: var(--orange); }
 .status { display: inline-flex; align-items: center; width: fit-content; gap: 7px; padding: 7px 10px; border-radius: 999px; background: var(--blue-soft); color: #0a6d98; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
