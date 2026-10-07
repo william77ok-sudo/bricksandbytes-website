@@ -25,7 +25,7 @@
       <h1>Help us build calmer, clearer care handovers.</h1>
       <p>Relay is preparing for a small pilot with families and care teams who want a simpler way to share everyday updates, responsibilities and supply needs.</p>
       <div class="pilot-actions">
-        <a class="pilot-button" href="mailto:support@bytesandbricks.co.uk?subject=Relay%20pilot%20application&amp;body=Your%20name%3A%0A%0AWhere%20are%20you%20based%3F%0A%0AAre%20you%20applying%20as%20a%20family%20member%2C%20independent%20caregiver%20or%20care%20organisation%3F%0A%0AWhat%20handover%20problem%20would%20you%20like%20Relay%20to%20help%20with%3F%0A%0AHow%20many%20people%20would%20take%20part%3F%0A%0APlease%20do%20not%20include%20names%2C%20medical%20details%20or%20other%20sensitive%20information.">Apply by email</a>
+        <a class="pilot-button" href="#application">Apply for the pilot</a>
         <a class="secondary-button" href="/relay/">Try the fictional demo</a>
       </div>
     </section>
@@ -57,8 +57,32 @@
       <h2 id="pilot-safety-title">Do not send personal or medical information in your application.</h2>
       <p>The public demo uses fictional information only. Applying does not grant access to a live care service. No participant should enter real personal, health or confidential information until Bytes &amp; Bricks has confirmed that the production pilot, permissions and data safeguards are ready.</p>
     </section>
+
+    <section id="application" class="pilot-application" aria-labelledby="application-title">
+      <div>
+        <p class="eyebrow">Pilot application</p>
+        <h2 id="application-title">Tell us about the coordination problem—not the person receiving care.</h2>
+        <p>We use this information only to assess whether Relay may be a suitable pilot. Do not include names of care recipients, diagnoses, medication, medical history or other sensitive details.</p>
+      </div>
+      <form id="pilot-form">
+        <div class="form-grid">
+          <label>Full name<input name="name" autocomplete="name" maxlength="100" required></label>
+          <label>Email address<input name="email" type="email" autocomplete="email" maxlength="160" required></label>
+          <label>Organisation <span>(optional)</span><input name="organisation" autocomplete="organization" maxlength="120"></label>
+          <label>Location<input name="location" maxlength="100" placeholder="City/region and country" required></label>
+          <label>Your role<select name="applicant_type" required><option value="">Choose one</option><option value="family">Family member</option><option value="independent-caregiver">Independent caregiver</option><option value="care-organisation">Care organisation</option><option value="other">Other</option></select></label>
+          <label>Potential participants<input name="participant_count" type="number" min="2" max="1000" inputmode="numeric" required></label>
+        </div>
+        <label>What handover or coordination problem would you like Relay to help with?<textarea name="problem" rows="5" maxlength="800" required></textarea></label>
+        <label class="honeypot" aria-hidden="true">Leave this field empty<input name="website" tabindex="-1" autocomplete="off"></label>
+        <label class="consent"><input name="consent" type="checkbox" value="yes" required><span>I agree that Bytes &amp; Bricks may store these application details and contact me about the Relay pilot. I understand that I must not submit personal or medical information about a care recipient.</span></label>
+        <button class="pilot-button" type="submit">Submit application</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
   </main>
 
   <footer><a href="/">Bytes &amp; Bricks</a><span>Relay supports coordination; it is not a medical service or emergency channel.</span><a href="/legal/privacy.html">Privacy</a></footer>
+  <script src="/relay/pilot/pilot.js"></script>
 </body>
 </html>
