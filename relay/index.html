@@ -12,7 +12,7 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header>
-    <a class="brand" href="/" aria-label="Bytes and Bricks home"><span aria-hidden="true">◒</span> Relay</a>
+    <a class="brand" href="/" aria-label="Relay by Bytes &amp; Bricks, home"><span aria-hidden="true">◒</span> Relay</a>
     <div class="tools">
       <small>Guided demo</small>
       <label class="sr" for="region">Region</label>
@@ -71,7 +71,7 @@
           <section id="remarks-editor" class="remarks-editor">
             <p class="eyebrow">Quick remarks</p>
             <h3>Add a useful note without typing everything</h3>
-            <div class="chips" aria-label="Quick remark suggestions">
+            <div class="chips" role="group" aria-label="Quick remark suggestions">
               <button type="button" data-remark="Settled and comfortable">Settled and comfortable</button>
               <button type="button" data-remark="Enjoyed company today">Enjoyed company</button>
               <button type="button" data-remark="Ate and drank well">Ate and drank well</button>
@@ -87,7 +87,7 @@
           <div class="next"><strong>For the next care team member</strong><p>Anne would like the radio on after dinner. The remote is beside her chair.</p></div>
           <div class="attention-row"><label><input id="task" type="checkbox"> Put the blue recycling box out this evening</label></div>
 
-          <div id="actions" class="actions"><button id="publish">Publish handover to Tom →</button><button id="accept" hidden>Accept responsibility ✓</button><p id="success" hidden>✓ Tom accepted responsibility. This record is saved.</p></div>
+          <div id="actions" class="actions"><button id="publish" type="button">Publish handover to Tom →</button><button id="accept" type="button" hidden>Accept responsibility ✓</button><p id="success" hidden>✓ Tom accepted responsibility. This record is saved.</p></div>
         </article>
 
         <section class="inventory card" aria-labelledby="inventory-title">
@@ -104,7 +104,7 @@
               <div class="supply-icon" aria-hidden="true">W</div>
               <div class="supply-info"><h3>Preferred wipes</h3><p>ComfortCare Sensitive · family-provided</p><small>Full surplus box: 6 packages</small></div>
               <div class="supply-count"><strong><span data-count="wipes">1</span> of 6</strong><small data-level="wipes">Running low</small></div>
-              <div class="supply-controls" aria-label="Update preferred wipes count">
+              <div class="supply-controls" role="group" aria-label="Update preferred wipes count">
                 <button type="button" data-adjust="wipes:-1" aria-label="Use one package of preferred wipes">−</button>
                 <button type="button" data-adjust="wipes:1" aria-label="Add one package of preferred wipes">+</button>
                 <button type="button" class="restock" data-restock="wipes">Restocked</button>
@@ -114,7 +114,7 @@
               <div class="supply-icon" aria-hidden="true">L</div>
               <div class="supply-info"><h3>Preferred lotion</h3><p>Aveeno Daily Moisturising · family-provided</p><small>Full surplus box: 2 bottles</small></div>
               <div class="supply-count"><strong><span data-count="lotion">2</span> of 2</strong><small data-level="lotion">Well stocked</small></div>
-              <div class="supply-controls" aria-label="Update preferred lotion count">
+              <div class="supply-controls" role="group" aria-label="Update preferred lotion count">
                 <button type="button" data-adjust="lotion:-1" aria-label="Use one bottle of preferred lotion">−</button>
                 <button type="button" data-adjust="lotion:1" aria-label="Add one bottle of preferred lotion">+</button>
                 <button type="button" class="restock" data-restock="lotion">Restocked</button>
@@ -124,7 +124,7 @@
               <div class="supply-icon" aria-hidden="true">C</div>
               <div class="supply-info"><h3>Coca-Cola cans</h3><p>Original Taste · family-provided</p><small>Full surplus box: 24 cans</small></div>
               <div class="supply-count"><strong><span data-count="cola">6</span> of 24</strong><small data-level="cola">Running low</small></div>
-              <div class="supply-controls" aria-label="Update Coca-Cola count">
+              <div class="supply-controls" role="group" aria-label="Update Coca-Cola count">
                 <button type="button" data-adjust="cola:-1" aria-label="Use one Coca-Cola can">−</button>
                 <button type="button" data-adjust="cola:1" aria-label="Add one Coca-Cola can">+</button>
                 <button type="button" class="restock" data-restock="cola">Restocked</button>
@@ -144,11 +144,12 @@
       <aside>
         <section class="card side"><p class="eyebrow">Handover progress</p><ol><li class="done"><b>✓</b><span><strong>Sarah recorded the update</strong><small>Today, 4:20 pm</small></span></li><li id="shared"><b>2</b><span><strong>Shared with Tom</strong><small>Not published yet</small></span></li><li id="accepted"><b>3</b><span><strong>Tom accepts</strong><small>Waiting</small></span></li></ol></section>
         <section class="card side people"><p class="eyebrow">Care circle · 3 people</p><p><b>SB</b><span><strong>Sarah</strong><small id="sarah-role">Activity coordinator</small></span></p><p><b>TB</b><span><strong>Tom</strong><small id="tom-role">Certified nursing assistant</small></span></p><p><b>JB</b><span><strong>Jess</strong><small>Family observer</small></span></p></section>
-        <button id="reset" class="reset">Reset fictional demo</button>
+        <button id="reset" type="button" class="reset">Reset fictional demo</button>
       </aside>
     </div>
   </main>
   <footer><a href="/">Bytes &amp; Bricks</a><span>Fictional testing only. Do not enter personal or health information.</span><a href="/relay/pilot/">Relay pilot</a></footer>
+  <div id="announcer" class="sr" role="status" aria-live="polite"></div>
   <script src="/relay/relay.js"></script>
 </body>
 </html>

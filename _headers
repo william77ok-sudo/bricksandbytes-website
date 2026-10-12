@@ -1,0 +1,13 @@
+# Cloudflare Pages response headers. Scoped to Relay only; other site pages are unchanged.
+# Pages Functions (/api/*) set their own headers in code.
+
+/relay/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+/relay/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

@@ -8,8 +8,31 @@ const initialState = {
   supplies: { wipes: 1, lotion: 2, cola: 6 },
   supplyUpdated: "Today, 4:35 pm"
 };
+const statuses = ["draft", "published", "accepted"];
+const maxRemarks = 280;
+
+// Accept only known values from storage so stale or edited data cannot break the demo.
+function normalise(saved) {
+  const source = saved && typeof saved === "object" ? saved : {};
+  const supplies = source.supplies && typeof source.supplies === "object" ? source.supplies : {};
+  return {
+    ...initialState,
+    status: statuses.includes(source.status) ? source.status : initialState.status,
+    taskDone: source.taskDone === true,
+    updated: typeof source.updated === "string" ? source.updated : initialState.updated,
+    remarks: typeof source.remarks === "string" ? source.remarks.slice(0, maxRemarks) : "",
+    region: source.region === "uk" ? "uk" : "us",
+    supplies: {
+      wipes: Number.isFinite(Number(supplies.wipes)) ? Number(supplies.wipes) : initialState.supplies.wipes,
+      lotion: Number.isFinite(Number(supplies.lotion)) ? Number(supplies.lotion) : initialState.supplies.lotion,
+      cola: Number.isFinite(Number(supplies.cola)) ? Number(supplies.cola) : initialState.supplies.cola
+    },
+    supplyUpdated: typeof source.supplyUpdated === "string" ? source.supplyUpdated : initialState.supplyUpdated
+  };
+}
+
 let state = initialState;
-try { state = { ...initialState, ...JSON.parse(localStorage.getItem(storageKey)) }; } catch {}
+try { state = normalise(JSON.parse(localStorage.getItem(storageKey))); } catch { state = normalise(null); }
 
 const $ = (id) => document.getElementById(id);
 const names = { sarah: ["Sarah", "SB"], tom: ["Tom", "TB"], jess: ["Jess", "JB"] };
@@ -35,10 +58,19 @@ const supplySettings = {
   cola: { maximum: 24, lowAt: 6, label: "Coca-Cola" }
 };
 
-function save(next) {
+function save(next, message) {
   state = next;
-  localStorage.setItem(storageKey, JSON.stringify(state));
+  try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {}
   render();
+  if (message) announce(message);
+}
+
+let announceTimer;
+function announce(message) {
+  const region = $("announcer");
+  window.clearTimeout(announceTimer);
+  region.textContent = "";
+  announceTimer = window.setTimeout(() => { region.textContent = message; }, 50);
 }
 
 function updateStep(id, done, time) {
@@ -108,10 +140,12 @@ function render() {
   $("success").hidden = !accepted || observer;
   $("actions").hidden = observer;
   $("remarks-editor").hidden = observer || state.status !== "draft";
-  $("remarks").value = state.remarks;
+  if ($("remarks").value !== state.remarks) $("remarks").value = state.remarks;
   $("remark-count").textContent = state.remarks.length;
   $("published-remarks").hidden = !published || !state.remarks;
   $("published-remarks-copy").textContent = state.remarks;
+  const chosen = state.remarks ? state.remarks.split(" · ") : [];
+  document.querySelectorAll("[data-remark]").forEach((button) => button.setAttribute("aria-pressed", String(chosen.includes(button.dataset.remark))));
   $("task").checked = state.taskDone;
   $("task").disabled = observer || who !== "tom" || !accepted;
   updateStep("shared", published, published ? state.updated : "Not published yet");
@@ -124,18 +158,20 @@ $("remarks").addEventListener("input", (event) => save({ ...state, remarks: even
 document.querySelectorAll("[data-remark]").forEach((button) => button.addEventListener("click", () => {
   const remark = button.dataset.remark;
   const parts = state.remarks ? state.remarks.split(" · ") : [];
-  const remarks = parts.includes(remark) ? parts.filter((item) => item !== remark).join(" · ") : [...parts, remark].join(" · ");
-  save({ ...state, remarks });
+  const removing = parts.includes(remark);
+  const remarks = removing ? parts.filter((item) => item !== remark).join(" · ") : [...parts, remark].join(" · ");
+  if (remarks.length > maxRemarks) { announce(`Remarks are limited to ${maxRemarks} characters.`); return; }
+  save({ ...state, remarks }, removing ? `Removed remark: ${remark}` : `Added remark: ${remark}`);
 }));
-$("publish").addEventListener("click", () => save({ ...state, status: "published", updated: "Just now" }));
-$("accept").addEventListener("click", () => save({ ...state, status: "accepted", updated: "Just now" }));
+$("publish").addEventListener("click", () => save({ ...state, status: "published", updated: "Just now" }, "Handover published to Tom. Waiting for Tom to accept."));
+$("accept").addEventListener("click", () => save({ ...state, status: "accepted", updated: "Just now" }, "Tom accepted responsibility. This record is saved."));
 $("task").addEventListener("change", (event) => save({ ...state, taskDone: event.target.checked }));
 document.querySelectorAll("[data-adjust]").forEach((button) => button.addEventListener("click", () => {
   const [id, amount] = button.dataset.adjust.split(":");
   const settings = supplySettings[id];
   const current = Number((state.supplies || initialState.supplies)[id]);
   const next = Math.max(0, Math.min(settings.maximum, current + Number(amount)));
-  save({ ...state, supplies: { ...initialState.supplies, ...state.supplies, [id]: next }, supplyUpdated: "Just now" });
+  save({ ...state, supplies: { ...initialState.supplies, ...state.supplies, [id]: next }, supplyUpdated: "Just now" }, `${settings.label}: ${next} of ${settings.maximum}.`);
 }));
 document.querySelectorAll("[data-restock]").forEach((button) => button.addEventListener("click", () => {
   const id = button.dataset.restock;
@@ -143,12 +179,12 @@ document.querySelectorAll("[data-restock]").forEach((button) => button.addEventL
     ...state,
     supplies: { ...initialState.supplies, ...state.supplies, [id]: supplySettings[id].maximum },
     supplyUpdated: "Just now"
-  });
+  }, `${supplySettings[id].label} restocked to ${supplySettings[id].maximum}.`);
 }));
 $("reset").addEventListener("click", () => {
   $("role").value = "sarah";
   $("region").value = "us";
-  save(initialState);
+  save(initialState, "Fictional demo reset.");
 });
 
 $("region").value = state.region;
