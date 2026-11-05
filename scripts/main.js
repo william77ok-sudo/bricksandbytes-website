@@ -18,3 +18,17 @@ if (button && nav) {
 document.querySelectorAll('[data-year]').forEach((element) => {
   element.textContent = new Date().getFullYear();
 });
+
+if (button && nav) {
+  button.addEventListener('click', () => {
+    button.setAttribute('aria-label', nav.classList.contains('is-open') ? 'Close navigation' : 'Open navigation');
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+      nav.classList.remove('is-open');
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-label', 'Open navigation');
+      button.focus();
+    }
+  });
+}
