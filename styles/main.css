@@ -218,3 +218,22 @@ figcaption { padding: 14px 20px; font-size: .73rem; letter-spacing:.02em; }
 @media(max-width:1000px) { .site-nav a { padding-inline:9px; font-size:.85rem; } .nav-wrap { gap:12px; } }
 @media(max-width:860px) { .product-hero .hero-grid, .product-pair, .portfolio-note { grid-template-columns:1fr; } .product-hero { padding:54px 0; } .product-hero .hero-grid { gap:42px; } .benefit-grid { grid-template-columns:repeat(2,1fr); } .contract-steps { grid-template-columns:1fr; gap:30px; } .pathway-visual, .game-visual { max-width:560px; } .game-feature .game-visual { order:2; } }
 @media(max-width:520px) { .benefit-grid { grid-template-columns:1fr; gap:24px; } .product-card { padding:26px; } .product-hero h1 { font-size:2.6rem; } .visual-label { font-size:.6rem; padding-inline:14px; } .cta { padding:28px; } }
+
+/* Homeowner beta enquiries use the existing email route only. */
+[hidden] { display: none !important; }
+.beta-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.beta-layout h2 { font-size: clamp(2.1rem, 3.5vw, 3.2rem); margin: 0 0 24px; }
+.beta-layout .eyebrow { color: #17627e; }
+.beta-commitment { padding-left: 22px; }
+.beta-commitment li { margin: 16px 0; padding-left: 6px; }
+.beta-contact { border: 1px solid #ced9e4; border-top: 4px solid #238679; border-radius: 16px; padding: 32px; background: #f7f9fc; }
+.beta-contact h3 { margin-top: 0; font-size: 1.4rem; }
+.beta-email { padding-block: 12px; text-align: center; }
+.email-fallback a { overflow-wrap: anywhere; }
+.copy-status { min-height: 1.5em; margin-block: 12px; }
+[data-copy-email] { cursor: pointer; }
+[data-email-manual] { width: 100%; padding: 10px; margin-bottom: 16px; color: #10223c; background: white; border: 1px solid #52647a; border-radius: 6px; }
+@media(max-width:860px) { .beta-layout { grid-template-columns: 1fr; gap: 28px; } }
+@media(max-width:520px) { .beta-contact { padding: 24px; } .beta-email { width: 100%; } }
+.section .eyebrow, .page-hero .eyebrow { color: #17627e; }
+.section-dark .eyebrow { color: #79cce9; }
