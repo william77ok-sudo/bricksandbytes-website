@@ -164,3 +164,76 @@ h1 { margin: 0; font-size: clamp(2.8rem, 6vw, 5.5rem); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+/* Product discovery: retains the studio's navy, blue and orange identity. */
+:focus-visible { outline: 3px solid #087faf; outline-offset: 4px; }
+.site-header :focus-visible, .hero :focus-visible, .section-dark :focus-visible, .site-footer :focus-visible { outline-color: #ffcf86; }
+[id] { scroll-margin-top: 100px; }
+.product-hero { padding: 76px 0; }
+.product-hero .hero-grid { grid-template-columns: 1.13fr 1fr; gap: 56px; }
+.product-hero h1 { font-size: clamp(2.6rem, 4.4vw, 4.35rem); letter-spacing: -.045em; }
+.product-hero .eyebrow { color: #79cce9; margin-bottom: 18px; }
+.hero-product-name { color: #d6e5f1; font-size: 1.05rem; margin: 0 0 10px; font-weight: 650; }
+.product-hero .status { margin-bottom: 24px; }
+.product-hero .hero-copy { font-size: 1.13rem; margin: 24px 0 28px; }
+.availability-note { color: #c5d3e5; font-size: .87rem; margin: 20px 0 0; max-width: 540px; }
+.pathway-visual { margin: 0; border: 1px solid #4d6878; background: #edf5f1; border-radius: 20px; overflow: hidden; box-shadow: 0 24px 56px #0003; }
+.visual-label { display:flex; justify-content:space-between; gap:12px; padding: 20px 22px 0; color: #244650; font-size: .68rem; letter-spacing:.08em; font-weight:800; }
+.visual-label span { color: #3e615c; white-space:nowrap; }
+.pathway-visual img { width:100%; height:auto; }
+figcaption { padding: 14px 20px; font-size: .73rem; letter-spacing:.02em; }
+.pathway-visual figcaption { color: #3e615c; border-top:1px solid #ceded7; }
+.product-pair { display: grid; grid-template-columns: 1.2fr 1fr; gap:24px; }
+.product-card { min-height:330px; padding:36px; border-top:4px solid #238679; }
+.product-card h3 { font-size:1.8rem; margin-top:24px; }
+.product-type { font-size:.75rem; text-transform:uppercase; letter-spacing:.1em; font-weight:800; color:#52667a; margin-bottom:16px; }
+.game-card { border-top-color:var(--orange); background:#fffaf6; }
+.game-feature { background:#eef1f5; }
+.game-feature .split { align-items:center; }
+.game-visual { margin:0; overflow:hidden; border-radius:20px; background:#12263e; }
+.game-visual img { width:100%; height:auto; }
+.game-visual figcaption { color:#c2cfdc; border-top:1px solid #314359; }
+.game-hero .game-visual { border:1px solid #43566b; }
+.lead { font-size:1.18rem; line-height:1.7; }
+.text-link { display:inline-flex; align-items:center; gap:12px; color:#0d4267; font-weight:750; text-underline-offset:5px; }
+.button { gap:14px; }
+.button-primary { background:#b84029; }
+.nav-contact { background:#b84029 !important; }
+.button-ink { background:var(--navy-800); color:#fff; }
+.portfolio-note { display:grid; grid-template-columns:1.3fr 1fr; gap:24px; align-items:center; }
+.portfolio-note h2 { font-size:2rem; margin:0; }
+.portfolio-note .small { grid-column:1/-1; }
+.small { font-size:.86rem; color:#52647a; }
+.back-link { display:block; width:fit-content; margin-bottom:28px; color:#cbd9e6; text-underline-offset:5px; }
+.benefit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px 32px; }
+.benefit-grid article { border-top:1px solid #ced9e4; padding-top:24px; }
+.benefit-grid h3, .contract-steps h3 { font-size:1.25rem; line-height:1.3; }
+.benefit-grid p { color:#52647a; }
+.feature-index { font-size:.8rem; letter-spacing:.12em; color:#236d78; font-weight:800; }
+.contract-steps { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+.contract-steps li { border-left:3px solid #b84029; padding:0 0 0 24px; }
+.roadmap-list { padding-left:22px; }
+.roadmap-list li { padding:9px 0; border-bottom:1px solid #cdd6e0; }
+.notice p:last-child { margin-bottom:0; }
+@media(max-width:1000px) { .site-nav a { padding-inline:9px; font-size:.85rem; } .nav-wrap { gap:12px; } }
+@media(max-width:860px) { .product-hero .hero-grid, .product-pair, .portfolio-note { grid-template-columns:1fr; } .product-hero { padding:54px 0; } .product-hero .hero-grid { gap:42px; } .benefit-grid { grid-template-columns:repeat(2,1fr); } .contract-steps { grid-template-columns:1fr; gap:30px; } .pathway-visual, .game-visual { max-width:560px; } .game-feature .game-visual { order:2; } }
+@media(max-width:520px) { .benefit-grid { grid-template-columns:1fr; gap:24px; } .product-card { padding:26px; } .product-hero h1 { font-size:2.6rem; } .visual-label { font-size:.6rem; padding-inline:14px; } .cta { padding:28px; } }
+
+/* Homeowner beta enquiries use the existing email route only. */
+[hidden] { display: none !important; }
+.beta-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.beta-layout h2 { font-size: clamp(2.1rem, 3.5vw, 3.2rem); margin: 0 0 24px; }
+.beta-layout .eyebrow { color: #17627e; }
+.beta-commitment { padding-left: 22px; }
+.beta-commitment li { margin: 16px 0; padding-left: 6px; }
+.beta-contact { border: 1px solid #ced9e4; border-top: 4px solid #238679; border-radius: 16px; padding: 32px; background: #f7f9fc; }
+.beta-contact h3 { margin-top: 0; font-size: 1.4rem; }
+.beta-email { padding-block: 12px; text-align: center; }
+.email-fallback a { overflow-wrap: anywhere; }
+.copy-status { min-height: 1.5em; margin-block: 12px; }
+[data-copy-email] { cursor: pointer; }
+[data-email-manual] { width: 100%; padding: 10px; margin-bottom: 16px; color: #10223c; background: white; border: 1px solid #52647a; border-radius: 6px; }
+@media(max-width:860px) { .beta-layout { grid-template-columns: 1fr; gap: 28px; } }
+@media(max-width:520px) { .beta-contact { padding: 24px; } .beta-email { width: 100%; } }
+.section .eyebrow, .page-hero .eyebrow { color: #17627e; }
+.section-dark .eyebrow { color: #79cce9; }
