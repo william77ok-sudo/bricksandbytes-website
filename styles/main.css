@@ -239,3 +239,15 @@ figcaption { padding: 14px 20px; font-size: .73rem; letter-spacing:.02em; }
 @media(max-width:520px) { .beta-contact { padding: 24px; } .beta-email { width: 100%; } }
 .section .eyebrow, .page-hero .eyebrow { color: #17627e; }
 .section-dark .eyebrow { color: #79cce9; }
+
+/* 20-second HBPD video (homepage) */
+.video-layout { display: grid; grid-template-columns: 1fr minmax(0, 420px); gap: 64px; align-items: center; }
+.video-copy h2 { margin: 0 0 16px; font-size: clamp(2.1rem, 4vw, 3.2rem); }
+.video-copy > p { max-width: 560px; color: var(--muted); }
+.video-note { font-size: .92rem; }
+.video-frame { margin: 0; }
+.video-frame video { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; background: var(--navy-900); border-radius: var(--radius); box-shadow: var(--shadow); }
+.video-frame figcaption { margin-top: 12px; font-size: .9rem; color: var(--muted); }
+.video-frame summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+.video-frame details p { margin: 8px 0 0; }
+@media (max-width: 860px) { .video-layout { grid-template-columns: 1fr; gap: 32px; } .video-frame { max-width: 420px; width: 100%; margin-inline: auto; } }
